@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'WaterMetro.wsgi.application'
+WSGI_APPLICATION = 'AquaMotus.wsgi.application'
 
 
 # Database
