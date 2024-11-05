@@ -1,0 +1,596 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <!-- Styles -->
+<style>
+  .rating-summary {
+      width: 300px;
+      font-family: Arial, sans-serif;
+  }
+  .overall-rating {
+      display: flex;
+      align-items: center;
+  }
+  .rating {
+      font-size: 3em;
+      color: #4CAF50;
+  }
+  .rating-bar {
+      background-color: #eee;
+      width: 150px;
+      height: 10px;
+      margin-left: 10px;
+      display: inline-block;
+      border-radius: 5px;
+  }
+  .rating-bar-fill {
+      height: 100%;
+      background-color: #4CAF50;
+      border-radius: 5px;
+  }
+  .rating-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+  }
+  </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <link rel="icon" href="{% static 'Guest/images/favicon_1f8f099c84.png' %}" />
+    <title>AQUA MOTUS</title>
+
+    <link
+      rel="preload"
+      href="{% static 'Guest/media/55c20a7790588da9-s.p.woff2' %}"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      data-next-font="size-adjust"
+    />
+    <link
+      rel="preload"
+      href="{% static 'Guest/media/155cae559bbd1a77-s.p.woff2' %}"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      data-next-font="size-adjust"
+    />
+    <link
+      rel="preload"
+      href="{% static 'Guest/media/4de1fea1a954a5b6-s.p.woff2' %}"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      data-next-font="size-adjust"
+    />
+    <link
+      rel="preload"
+      href="{% static 'Guest/media/6d664cce900333ee-s.p.woff2' %}"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      data-next-font="size-adjust"
+    />
+    <link
+      rel="preload"
+      href="{% static 'Guest/media/7ff6869a1704182a-s.p.woff2' %}"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      data-next-font="size-adjust"
+    />
+    <link
+      rel="preload"
+      href="{% static 'Guest/css/9a9138c30233dcf7.css' %}"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'Guest/css/9a9138c30233dcf7.css' %}"
+      data-n-g=""
+    />
+    <noscript data-n-css=""></noscript>
+    <script
+      defer=""
+      nomodule=""
+      src="{% static 'Guest/js/polyfills-c67a75d1b6f99dc8.js' %}"
+    ></script>
+    <script
+      src="{% static 'Guest/js/webpack-8cf92f6c9a1b60e0.js' %}"
+      defer=""
+    ></script>
+    <script
+      src="{% static 'Guest/js/framework-98741467467a0898.js' %}"
+      defer=""
+    ></script>
+    <script src="{% static 'Guest/js/main-87c083e7f09ea422.js' %}" defer=""></script>
+    <script src="{% static 'Guest/js/_app-199b25bf90e8fdcb.js' %}" defer=""></script>
+    <script
+      src="{% static 'Guest/js/4c744e84-5f8a456929ce6ca5.js' %}"
+      defer=""
+    ></script>
+    <script
+      src="{% static 'Guest/js/9e555e92-8cb4103fba4c60f5.js' %}"
+      defer=""
+    ></script>
+    <script
+      src="{% static 'Guest/js/02935b41-38b530eb1dcd82e8.js' %}"
+      defer=""
+    ></script>
+    <script
+      src="{% static 'Guest/js/69bd6bf3-151dbdc910db82b2.js' %}"
+      defer=""
+    ></script>
+    <script
+      src="{% static 'Guest/js/c8eae200-5d9f9c1c1d591d07.js' %}"
+      defer=""
+    ></script>
+    <script
+      src="{% static 'Guest/js/8eec4907-d3b95208f1773144.js' %}"
+      defer=""
+    ></script>
+    <script
+      src="{% static 'Guest/js/5c4819dd-c4aa450632979868.js' %}"
+      defer=""
+    ></script>
+    <script
+      src="{% static 'Guest/js/0c4fd1c2-753ef3bc7292b897.js' %}"
+      defer=""
+    ></script>
+    <script src="{% static 'Guest/js/682-f231089d5008ac00.js' %}" defer=""></script>
+    <script src="{% static 'Guest/js/805-8cf49f83126c22ee.js' %}" defer=""></script>
+    <script src="{% static 'Guest/js/89-ac879335cffee57f.js' %}" defer=""></script>
+    <script src="{% static 'Guest/js/966-5f18586c01394bc4.js' %}" defer=""></script>
+    <script src="{% static 'Guest/js/510-754af2100006a669.js' %}" defer=""></script>
+    <script src="{% static 'Guest/js/index-a692b73e5b59e2c1.js' %}" defer=""></script>
+    <script src="{% static 'Guest/js/_buildManifest.js' %}" defer=""></script>
+    <script src="{% static 'Guest/js/_ssgManifest.js' %}" defer=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  </head>
+  <body>
+    <div id="__next">
+      <main class="__className_6d65e1">
+        <div class="relative w-full p-2">
+          <div class="flex flex-row justify-between items-center bg-white">
+            <a href="/"
+              ><img
+                alt="logo"
+                loading="lazy"
+                width="128"
+                height="64"
+                decoding="async"
+                data-nimg="1"
+                class="w-32 h-16 cursor-pointer"
+                style="color:transparent"
+                src="{% static 'Guest/images/AQUA MOTUS.png' %}"
+            /></a>
+            <div
+              class="flex-row space-between items-center gap-6 hidden md:flex text-Blue"
+            >
+              <a class="flex-row space-between gap-10 hidden md:flex" href="/"
+                ><b>Home</b></a
+              ><a
+                class="flex-row space-between gap-10 hidden md:flex"
+                href="{% url 'WebGuest:Login' %}"
+                ><b>Sign In</b></a
+              ><a
+                class="flex-row space-between gap-10 hidden md:flex"
+                href="{% url 'WebGuest:UserRegistration' %}"
+                ><b>Sign Up</b></a
+              >
+            </div>
+            <div class="flex flex-row justify-center md:hidden">
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                class="md:hidden cursor-pointer h-10 w-10 text-black"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="w-full h-full bg-black relative">
+          <video
+            autoplay=""
+            muted=""
+            loop=""
+           
+            class="w-screen h-screen object-cover absolute transition ease-in-out duration-500"
+            src="{% static 'Guest/media/video_1bf1d108c8.webm' %}"
+          ></video>
+          <div
+            class="flex flex-col items-center justify-end text-white relative w-full h-screen z-30"
+          >
+            <div
+              class="md:flex items-center hidden flex-col"
+              style="opacity:1;transform:none"
+            >
+              scroll down
+              <div
+                class="z-20 cursor-pointer bf-transparent before:animate-mouseanim relative bottom-20 top-15 mb-8 h-16 w-10 rounded-3xl border-2 border-white before:absolute before:left-[41%] before:top-3 before:h-2 before:w-2 before:translate-x--1/2 before:rounded-full before:bg-white before:opacity-100 before:content-['']"
+              ></div>
+              <br /><br /><br />
+            </div>
+          </div>
+
+          <div class="w-full h-1 bg-gradient-to-r from-blue-150 to-ocean"></div>
+          
+        
+    <div class="w-full h-1 bg-gradient-to-r from-blue-150 to-ocean"></div>
+
+          <div class="flex w-full flex-col md:flex-row bg-white py-16">
+            <div
+              class="w-full hidden lg:w-7/12 h-auto relative lg:flex justify-center items-center pl-8"
+            >
+              <img
+                alt="Boat Image"
+                loading="lazy"
+                width="728"
+                height="418"
+                decoding="async"
+                data-nimg="1"
+                class="object-cover transition-all duration-300 ease-in-out z-0 relative top-0"
+                style="color:transparent"
+                src="{% static 'Guest/images/boat0004_1da78b9b2e.png' %}"
+              />
+            </div>
+            <div
+              class="w-full hidden lg:w-7/12 h-auto relative lg:flex justify-center items-center pl-8"
+            >
+              <img
+                alt="Boat Image"
+                loading="lazy"
+                width="728"
+                height="418"
+                decoding="async"
+                data-nimg="1"
+                class="object-cover transition-all duration-300 ease-in-out z-0 relative top-0"
+                style="color:transparent"
+                src="{% static 'Guest/images/boat0001_7dd6617bec.png' %}"
+              />
+            </div>
+          </div>
+          <svg
+            class="bg-white w-full"
+            width="1440"
+            viewBox="0 0 1440 102"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_18_14982)">
+              <g style="mix-blend-mode:multiply">
+                <path
+                  d="M1563 8.14544C1551.67 9.57423 1540.04 11.5782 1527.87 14.1053C1507.51 18.3335 1487.15 22.5617 1466.79 23.5144C1448.1 24.3885 1426.81 20.1505 1401.7 15.1507C1370.02 8.84437 1332.25 1.32615 1285.95 1.32615C1252.88 1.32615 1224.52 6.43882 1197.21 11.3622C1155.96 18.7986 1117.1 25.8032 1068.05 14.1053C986.528 -5.33735 935.389 -4.80044 867.945 16.4625C800.502 37.7254 745.545 33.7537 700.686 24.0776C696.341 23.1405 692.04 22.1583 687.77 21.1832C670.743 17.295 654.206 13.5185 637.318 13.1501C613.648 12.5599 589.978 17.9218 566.307 23.2837C547.732 27.4913 529.157 31.6989 510.583 33.0303C487.091 34.7142 463.598 31.7567 440.106 28.7992C421.354 26.4384 402.601 24.0776 383.848 24.0776C364.334 24.0776 344.82 26.6341 325.306 29.1905C302.575 32.1683 279.844 35.1462 257.114 34.0836C236.753 33.1317 216.391 28.9073 196.03 24.6829C174.146 20.1426 152.263 15.6024 130.379 15.125C98.0649 14.3193 70.165 18.7266 42.333 23.1232C8.10901 28.5295 -26.0123 33.9196 -68.1125 29.5808C-90.8643 27.236 -112.617 23.4467 -134.08 19.7079C-185.279 10.789 -234.83 2.15706 -292.367 14.1053C-312.729 18.3335 -333.09 22.5617 -353.451 23.5144C-376.182 24.5779 -398.913 21.5974 -421.643 18.6169C-462.54 13.2545 -495.457 13.0608 -536.444 18.2253C-559.936 21.1855 -583.428 24.1456 -606.921 22.4602C-625.495 21.1276 -644.07 16.9162 -662.644 12.7049C-713.69 1.13146 -746.993 1.09298 -797.023 13.4995C-801.629 14.6418 -806.412 15.9191 -811.294 17.2229C-828.798 21.8976 -847.58 26.9135 -864.096 27.2741C-989.46 27.2741 -989.423 29.0645 -987.639 114.567C-987.398 126.117 -987.125 139.194 -987.125 154L1563 154V8.14544Z"
+                  fill="#93DCEC"
+                ></path>
+              </g>
+              <g style="mix-blend-mode:multiply">
+                <path
+                  d="M1563 8.14544C1552.4 9.57423 1541.52 11.5782 1530.14 14.1053C1511.1 18.3335 1492.05 22.5617 1473.01 23.5144C1455.54 24.3885 1435.62 20.1505 1412.13 15.1507C1382.5 8.84437 1347.17 1.32615 1303.87 1.32615C1272.94 1.32615 1246.41 6.43882 1220.87 11.3622C1182.29 18.7986 1145.94 25.8032 1100.07 14.1053C1023.81 -5.33735 975.983 -4.80044 912.902 16.4625C849.821 37.7254 798.419 33.7537 756.461 24.0776C752.397 23.1405 748.374 22.1583 744.38 21.1832C728.455 17.295 712.987 13.5185 697.192 13.1501C675.053 12.5599 652.913 17.9218 630.774 23.2837C613.4 27.4913 596.027 31.6989 578.654 33.0303C556.681 34.7142 534.708 31.7567 512.735 28.7992C495.196 26.4384 477.656 24.0776 460.116 24.0776C441.865 24.0776 423.613 26.6341 405.361 29.1905C384.1 32.1683 362.84 35.1462 341.579 34.0836C322.535 33.1317 303.491 28.9073 284.446 24.6829C263.978 20.1426 243.51 15.6024 223.042 15.125C192.818 14.3193 166.722 18.7266 140.691 23.1232C108.68 28.5295 76.7658 33.9196 37.3887 29.5808C16.1085 27.236 -4.23694 23.4467 -24.3116 19.7079C-72.199 10.789 -118.545 2.15706 -172.361 14.1053C-191.405 18.3335 -210.45 22.5617 -229.494 23.5144C-250.755 24.5779 -272.015 21.5974 -293.276 18.6169C-331.527 13.2545 -362.315 13.0608 -400.651 18.2253C-422.623 21.1855 -444.596 24.1456 -466.569 22.4602C-483.942 21.1276 -501.315 16.9162 -518.688 12.7049C-566.432 1.13146 -597.582 1.09298 -644.375 13.4995C-648.684 14.6418 -653.157 15.9191 -657.723 17.2229C-674.095 21.8976 -691.662 26.9135 -707.11 27.2741C-824.366 27.2741 -824.331 29.0645 -822.662 114.567C-822.437 126.117 -822.181 139.194 -822.181 154L1563 154V8.14544Z"
+                  fill="#93DCEC"
+                ></path>
+              </g>
+              <g style="mix-blend-mode:multiply">
+                <path
+                  d="M-42 8.14544C-32.114 9.57423 -21.9639 11.5782 -11.3452 14.1053C6.42212 18.3335 24.1892 22.5617 41.9565 23.5144C58.2578 24.3885 76.8354 20.1505 98.7524 15.1507C126.397 8.84437 159.354 1.32615 199.755 1.32615C228.608 1.32615 253.356 6.43882 277.187 11.3622C313.183 18.7986 347.089 25.8032 389.89 14.1053C461.029 -5.33735 505.653 -4.80044 564.504 16.4625C623.355 37.7254 671.31 33.7537 710.454 24.0776C714.246 23.1405 717.999 22.1583 721.725 21.1832C736.582 17.295 751.013 13.5185 765.749 13.1501C786.403 12.5599 807.058 17.9218 827.713 23.2837C843.922 27.4913 860.13 31.6989 876.338 33.0303C896.837 34.7142 917.337 31.7567 937.836 28.7992C954.2 26.4384 970.563 24.0776 986.927 24.0776C1003.95 24.0776 1020.98 26.6341 1038.01 29.1905C1057.85 32.1683 1077.68 35.1462 1097.52 34.0836C1115.28 33.1317 1133.05 28.9073 1150.82 24.6829C1169.91 20.1426 1189.01 15.6024 1208.1 15.125C1236.3 14.3193 1260.65 18.7266 1284.93 23.1232C1314.8 28.5295 1344.57 33.9196 1381.31 29.5808C1401.16 27.236 1420.14 23.4467 1438.87 19.7079C1483.55 10.789 1526.78 2.15706 1576.99 14.1053C1594.76 18.3335 1612.53 22.5617 1630.29 23.5144C1650.13 24.5779 1669.96 21.5974 1689.8 18.6169C1725.48 13.2545 1754.21 13.0608 1789.97 18.2253C1810.47 21.1855 1830.97 24.1456 1851.47 22.4602C1867.68 21.1276 1883.89 16.9162 1900.09 12.7049C1944.64 1.13146 1973.7 1.09298 2017.35 13.4995C2021.37 14.6418 2025.55 15.9191 2029.81 17.2229C2045.08 21.8976 2061.47 26.9135 2075.88 27.2741C2185.27 27.2741 2185.24 29.0645 2183.68 114.567C2183.47 126.117 2183.24 139.194 2183.24 154L-42 154V8.14544Z"
+                  fill="#93DCEC"
+                ></path>
+              </g>
+              <g style="mix-blend-mode:multiply">
+                <path
+                  d="M-42 8.14544C-32.3049 9.57423 -22.3511 11.5782 -11.9375 14.1053C5.48657 18.3335 22.9106 22.5617 40.3347 23.5144C56.321 24.3885 74.54 20.1505 96.0334 15.1507C123.144 8.84437 155.464 1.32615 195.085 1.32615C223.38 1.32615 247.65 6.43882 271.021 11.3622C306.322 18.7986 339.572 25.8032 381.547 14.1053C451.312 -5.33735 495.074 -4.80044 552.788 16.4625C610.502 37.7254 657.531 33.7537 695.919 24.0776C699.637 23.1405 703.318 22.1583 706.972 21.1832C721.542 17.295 735.694 13.5185 750.145 13.1501C770.401 12.5599 790.657 17.9218 810.913 23.2837C826.808 27.4913 842.703 31.6989 858.598 33.0303C878.702 34.7142 898.805 31.7567 918.908 28.7992C934.956 26.4384 951.003 24.0776 967.051 24.0776C983.75 24.0776 1000.45 26.6341 1017.15 29.1905C1036.6 32.1683 1056.05 35.1462 1075.5 34.0836C1092.93 33.1317 1110.35 28.9073 1127.77 24.6829C1146.5 20.1426 1165.23 15.6024 1183.96 15.125C1211.61 14.3193 1235.48 18.7266 1259.3 23.1232C1288.59 28.5295 1317.79 33.9196 1353.81 29.5808C1373.28 27.236 1391.9 23.4467 1410.26 19.7079C1454.08 10.789 1496.48 2.15706 1545.72 14.1053C1563.14 18.3335 1580.57 22.5617 1597.99 23.5144C1617.44 24.5779 1636.89 21.5974 1656.34 18.6169C1691.34 13.2545 1719.51 13.0608 1754.58 18.2253C1774.69 21.1855 1794.79 24.1456 1814.89 22.4602C1830.79 21.1276 1846.68 16.9162 1862.58 12.7049C1906.26 1.13146 1934.76 1.09298 1977.57 13.4995C1981.51 14.6418 1985.61 15.9191 1989.79 17.2229C2004.76 21.8976 2020.84 26.9135 2034.97 27.2741C2142.25 27.2741 2142.22 29.0645 2140.69 114.567C2140.48 126.117 2140.25 139.194 2140.25 154L-42 154V8.14544Z"
+                  fill="#93DCEC"
+                ></path>
+              </g>
+            </g>
+            <defs>
+              <clipPath id="clip0_18_14982">
+                <rect
+                  x="-42"
+                  width="1810"
+                  height="102"
+                  rx="12"
+                  fill="white"
+                ></rect>
+              </clipPath>
+            </defs>
+          </svg>
+          <div class="relative w-full h-screen bg-white">
+            <object
+              class="absolute w-8/12 md:w-5/12 top-0 right-0"
+              type="image/svg+xml"
+              data="{% static 'Guest/images/wave_Infinity_c07b0a01ec.svg' %}"
+            >
+              svg-animation</object
+            ><object
+              class="absolute w-8/12 md:w-5/12 bottom-0 left-0 transform rotate-180"
+              type="image/svg+xml"
+              data="{% static 'Guest/images/wave_Infinity_c07b0a01ec.svg' %}"
+            >
+              svg-animation
+            </object>
+            <div
+              class="flex h-full px-4 flex-col justify-center gap-2 items-center"
+            >
+              <div
+                class="my-2 z-[10] text-blue text-4xl lg:text-6xl font-bold text-center"
+              >
+                <div class="Typewriter" data-testid="typewriter-wrapper"></div>
+              </div>
+              <div
+                class="my-2 z-[10] text-xl text-center lg:text-2xl font-bold mt-2 lg:w-1/2"
+              >
+                <span class="text-blue">Sustainable</span>,<span
+                  class="text-ocean"
+                >
+                  Eco-friendly</span
+                >, and efficient mode of transportation to the people by
+                connecting various parts of the city through waterways.
+              </div>
+              <h1
+                class="text-md lg:text-xl z-[10] text-center text-gray-400 mt-2 lg:w-2/3"
+              >
+                The Aqua Motus is an innovative and sustainable mode of
+                transportation that connects various parts of the city through
+                its intricate network of waterways. The project aims to reduce
+                traffic congestion and improve the connectivity of the city
+                while promoting eco-friendly means of transportation.
+              </h1>
+            </div>
+          </div>
+          <div class="w-full h-1 bg-gradient-to-r from-blue-150 to-ocean"></div>
+
+          <div class="px-8 py-3 bg-white w-full flex flex-col justify-center">
+            <div class="text-3xl font-bold mt-4">
+              Our
+              <span
+                class="bg-gradient-to-r from-ocean to-blue text-transparent bg-clip-text"
+              >
+                <!-- -->Terminals
+              </span>
+              
+            </div>
+            <div class="w-full flex flex-row py-2 bg-white relative">
+              <div
+                class="flex flex-row gap-8 overflow-x-scroll scrollbar-hide scroll-smooth"
+              >
+                <div
+                  class="w-[300px] p-2 rounded-md shrink-0 bg-white-500 h-full group over"
+                >
+                  <img
+                    alt="Vytilla"
+                    loading="lazy"
+                    width="300"
+                    height="150"
+                    decoding="async"
+                    data-nimg="1"
+                    class="w-[300px] rounded-lg h-[150px] object-cover overflow-hidden group-hover:transform group-hover:scale-105 transition-all duration-300 ease-in-out"
+                    style="color:transparent"
+                    src="{% static 'Guest/images/vytilla_station_14c219f305.jpg' %}"
+                  />
+                  <p class="text-black font-bold text-lg">Vytilla</p>
+                  <p class="text-black font-normal text-sm line-clamp-2">
+                    Largest Mobility Hub connecting various forms of
+                    transportation.
+                  </p>
+                </div>
+                <div
+                  class="w-[300px] p-2 rounded-md shrink-0 bg-white-500 h-full group over"
+                >
+                  <img
+                    alt="HighCourt"
+                    loading="lazy"
+                    width="300"
+                    height="150"
+                    decoding="async"
+                    data-nimg="1"
+                    class="w-[300px] rounded-lg h-[150px] object-cover overflow-hidden group-hover:transform group-hover:scale-105 transition-all duration-300 ease-in-out"
+                    style="color:transparent"
+                    src="{% static 'Guest/images/highcourt_station_c3296123d3.jpg' %}"
+                  />
+                  <p class="text-black font-bold text-lg">HighCourt</p>
+                  <p class="text-black font-normal text-sm line-clamp-3">
+                    The High Court facilitates the needs of the people, with a
+                    neutral outlook through law and order.
+                  </p>
+                </div>
+                <div
+                  class="w-[300px] p-2 rounded-md shrink-0 bg-white-500 h-full group over"
+                >
+                  <img
+                    alt="Vypin"
+                    loading="lazy"
+                    width="300"
+                    height="150"
+                    decoding="async"
+                    data-nimg="1"
+                    class="w-[300px] rounded-lg h-[150px] object-cover overflow-hidden group-hover:transform group-hover:scale-105 transition-all duration-300 ease-in-out"
+                    style="color:transparent"
+                    src="{% static 'Guest/images/vypin_station_b82f5ce854.jpg' %}"
+                  />
+                  <p class="text-black font-bold text-lg">Vypin</p>
+                  <p class="text-black font-normal text-sm line-clamp-2">
+                    Vypin is known for its beaches, lagoons, and fishing
+                    villages.
+                  </p>
+                </div>
+                <div
+                  class="w-[300px] p-2 rounded-md shrink-0 bg-white-500 h-full group over"
+                >
+                  <img
+                    alt="Kakkanad"
+                    loading="lazy"
+                    width="300"
+                    height="150"
+                    decoding="async"
+                    data-nimg="1"
+                    class="w-[300px] rounded-lg h-[150px] object-cover overflow-hidden group-hover:transform group-hover:scale-105 transition-all duration-300 ease-in-out"
+                    style="color:transparent"
+                    src="{% static 'Guest/images/kakkanad_station_c7f7508e20.jpg' %}"
+                  />
+                  <p class="text-black font-bold text-lg">Kakkanad</p>
+                  <p class="text-black font-normal text-sm line-clamp-2">
+                    Kakkanad is a rapidly developing city known for its IT and
+                    industrial parks.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-2 bg-gradient-to-r from-ocean to-blue"></div>
+            <div class="w-full flex flex-row py-2 bg-white relative">
+              <div
+                class="flex flex-row gap-8 overflow-x-scroll scrollbar-hide scroll-smooth"
+              >
+                <div
+                  class="w-[300px] p-2 rounded-md shrink-0 bg-white-500 h-full group over"
+                >
+                  <img
+                    alt="Bolgatty"
+                    loading="lazy"
+                    width="300"
+                    height="150"
+                    decoding="async"
+                    data-nimg="1"
+                    class="w-[300px] rounded-lg h-[150px] object-cover overflow-hidden group-hover:transform group-hover:scale-105 transition-all duration-300 ease-in-out"
+                    style="color:transparent"
+                    src="{% static 'Guest/images/Whats_App_Image_2023_09_27_at_6_02_25_PM_59f64c1b94.jpeg' %}"
+                  />
+                  <p class="text-black font-bold text-lg">Bolgatty</p>
+                  <p class="text-black font-normal text-sm line-clamp-3">
+                    Serene island in Kerala, India, known for its historic
+                    Bolgatty Palace, lush greenery, and tranquil backwaters.
+                  </p>
+                </div>
+                <div
+                  class="w-[300px] p-2 rounded-md shrink-0 bg-white-500 h-full group over"
+                >
+                  <img
+                    alt="South Chittoor"
+                    loading="lazy"
+                    width="300"
+                    height="150"
+                    decoding="async"
+                    data-nimg="1"
+                    class="w-[300px] rounded-lg h-[150px] object-cover overflow-hidden group-hover:transform group-hover:scale-105 transition-all duration-300 ease-in-out"
+                    style="color:transparent"
+                    src="{% static 'Guest/images/South_chittoor_731b71a136.jpeg' %}"
+                  />
+                  <p class="text-black font-bold text-lg">South Chittoor</p>
+                  <p class="text-black font-normal text-sm line-clamp-2">
+                    Riverine island in the city of Kochi in Kerala
+                  </p>
+                </div>
+                <div
+                  class="w-[300px] p-2 rounded-md shrink-0 bg-white-500 h-full group over"
+                >
+                  <img
+                    alt="Cheranalloor"
+                    loading="lazy"
+                    width="300"
+                    height="150"
+                    decoding="async"
+                    data-nimg="1"
+                    class="w-[300px] rounded-lg h-[150px] object-cover overflow-hidden group-hover:transform group-hover:scale-105 transition-all duration-300 ease-in-out"
+                    style="color:transparent"
+                    src="{% static 'Guest/images/Cheranalloor_9259f0ab10.jpeg' %}"
+                  />
+                  <p class="text-black font-bold text-lg">Cheranalloor</p>
+                  <p class="text-black font-normal text-sm line-clamp-2">
+                    Suburb of Kochi city in the state of Kerala
+                  </p>
+                </div>
+                <div
+                  class="w-[300px] p-2 rounded-md shrink-0 bg-white-500 h-full group over"
+                >
+                  <img
+                    alt="Eloor"
+                    loading="lazy"
+                    width="300"
+                    height="150"
+                    decoding="async"
+                    data-nimg="1"
+                    class="w-[300px] rounded-lg h-[150px] object-cover overflow-hidden group-hover:transform group-hover:scale-105 transition-all duration-300 ease-in-out"
+                    style="color:transparent"
+                    src="{% static 'Guest/images/Eloor_41da385b43.jpeg' %}"
+                  />
+                  <p class="text-black font-bold text-lg">Eloor</p>
+                  <p class="text-black font-normal text-sm line-clamp-2">
+                    Industrial area situated north of the Kochi city centre
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-2 bg-gradient-to-r from-ocean to-blue"></div>
+            <div class="w-full flex flex-row py-2 bg-white relative">
+              <div
+                class="flex flex-row gap-8 overflow-x-scroll scrollbar-hide scroll-smooth"
+              >
+                <div
+                  class="w-[300px] p-2 rounded-md shrink-0 bg-white-500 h-full group over"
+                >
+                  <img
+                    alt="Fort Kochi"
+                    loading="lazy"
+                    width="300"
+                    height="150"
+                    decoding="async"
+                    data-nimg="1"
+                    class="w-[300px] rounded-lg h-[150px] object-cover overflow-hidden group-hover:transform group-hover:scale-105 transition-all duration-300 ease-in-out"
+                    style="color:transparent"
+                    src="{% static 'Guest/images/Whats_App_Image_2024_04_30_at_12_38_25_PM_2056042b4d.jpeg' %}"
+                  />
+                  <p class="text-black font-bold text-lg">Fort Kochi</p>
+                  <p class="text-black font-normal text-sm line-clamp-3">
+                    Fort Kochi is rich in heritage and culture, and is a
+                    prominent tourist destination for both domestic and
+                    international travellers.
+                  </p>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+          <div class="w-full bg-white px-4 lg:px-6 py-3">
+            
+          </div>
+
+          <div class="w-full h-2 bg-gradient-to-r from-ocean to-blue"><br><p class="text-sm font-medium cursor-pointer text-center text-blue p-2">
+            © 2024 <b> AQUA MOTUS </b> | Developed by ANMIGHA N M
+            </p></div><br>
+        </div>
+        
+          
+        </div>
+      </main>
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        {% for message in messages %}
+            Swal.fire({
+                icon: '{% if message.tags %}{{ message.tags }}{% else %}info{% endif %}',
+                title: '{{ message }}',
+                showConfirmButton: false,
+                timer: 3000
+            });
+        {% endfor %}
+    });
+</script>
+</html>

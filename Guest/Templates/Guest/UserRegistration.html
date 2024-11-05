@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqua Motus | Registration</title>
+    <meta name="description" content="Register for Aqua Motus">
+    <link rel="stylesheet" href="{% static 'Guest/Pages/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Guest/Pages/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Guest/Pages/css/flaticon.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Guest/Pages/css/style.css' %}">
+    <style>
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .field-icon {
+            float: right;
+            margin-left: -25px;
+            margin-top: -25px;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <section class="fxt-template-animation fxt-template-layout3" data-bg-image="{% static 'Guest/Pages/images/Images.webp' %}">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-12 fxt-none-991">
+                    <div class="fxt-header">
+                        <div class="fxt-transformY-50 fxt-transition-delay-1">
+                            <a href="{% url 'WebGuest:Index' %}" class="fxt-logo">
+                                <img src="{% static 'Guest/Pages/images/AQUA MOTUS-Circle.png' %}" alt="Logo">
+                            </a>
+                        </div>
+                        <div class="fxt-transformY-50 fxt-transition-delay-2">
+                            <h1>Welcome To AQUA MOTUS</h1>
+                        </div>
+                        <div class="fxt-transformY-50 fxt-transition-delay-3">
+                            <p>
+                                An innovative and sustainable mode of transportation that connects various parts of the city
+                                through its intricate network of waterways. Aims to reduce traffic congestion and improve the
+                                connectivity of the city while promoting eco-friendly means of transportation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 fxt-bg-color">
+                    <div class="fxt-content">
+                        <div class="fxt-form">
+                            <h2>Register</h2>
+                            <p class="mb-5">Create an account</p>
+                            <form id="registrationForm" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="fname" class="input-label"><b>First Name</b></label>
+                                    <input type="text" id="fname" class="form-control" name="fName" placeholder="First Name" required>
+                                    <small class="text-danger" id="fnameError"></small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Lname" class="input-label"><b>Last Name</b></label>
+                                    <input type="text" id="Lname" class="form-control" name="LName" placeholder="Last Name" required>
+                                    <small class="text-danger" id="LnameError"></small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="input-label"><b>Email Address</b></label>
+                                    <input type="email" id="email" class="form-control" name="Email" placeholder="demo@gmail.com" required>
+                                    <button type="button" id="validateEmailBtn" class="btn btn-secondary ml-2">Validate Email</button>
+                                    <small class="text-danger" id="emailError"></small>
+                                </div>
+                                <div class="form-group" id="otpSection" style="display:none;">
+                                    <label for="otp" class="input-label"><b>Enter OTP</b></label>
+                                    <input type="text" id="otp" class="form-control" name="otp" placeholder="Enter OTP" required>
+                                    <button type="button" id="verifyOtpBtn" class="btn btn-secondary ml-2">Verify OTP</button>
+                                    <small class="text-danger" id="otpError"></small>
+                                    <small class="text-success" id="emailVerifiedMessage"></small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contact" class="input-label"><b>Contact Number</b></label>
+                                    <input type="text" id="contact" class="form-control" name="Contact" maxlength="10" placeholder="9999999999" required>
+                                    <small class="text-danger" id="contactError"></small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender" class="input-label"><b>Gender</b></label><br>
+                                    <div class="radio-group">
+                                        <label><input type="radio" name="Gender" value="Male" checked> Male</label>
+                                        <label><input type="radio" name="Gender" value="Female"> Female</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address" class="input-label"><b>Address</b></label>
+                                    <input type="text" id="address" class="form-control" name="Address" placeholder="House P O" required>
+                                    <small class="text-danger" id="addressError"></small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="input-label"><b>Password</b></label>
+                                    <input id="password" type="password" class="form-control" name="Password" placeholder="********" required>
+                                    <small class="text-danger" id="passwordError"></small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="re-password" class="input-label"><b>Confirm Password</b></label>
+                                    <input id="re-password" type="password" class="form-control" name="re-password" placeholder="********" required>
+                                    <small class="text-danger" id="rePasswordError"></small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="photo" class="input-label"><b>Upload Photo</b></label>
+                                    <input type="file" id="photo" class="form-control" name="Photo" placeholder="Image" required>
+                                    <small class="text-danger" id="photoError"></small>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="fxt-btn-fill">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="fxt-footer">
+                            <p>Have an account? <a href="{% url 'WebGuest:Login' %}" class="switcher-text2 inline-text">Log in</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'Guest/Pages/js/jquery.min.js' %}"></script>
+    <script src="{% static 'Guest/Pages/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Guest/Pages/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'Guest/Pages/js/validator.min.js' %}"></script>
+    <script src="{% static 'Guest/Pages/js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        $(document).ready(function () {
+            function validateField(selector, regex, errorMsgSelector, errorMsg) {
+                $(selector).on('blur', function () {
+                    if (!regex.test($(this).val())) {
+                        $(errorMsgSelector).text(errorMsg);
+                    } else {
+                        $(errorMsgSelector).text('');
+                    }
+                });
+            }
+
+            validateField('#fname', /^[a-zA-Z\s]+$/, '#fnameError', 'Only characters and spaces are allowed.');
+            validateField('#email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/, '#emailError', 'Invalid email address.');
+            validateField('#contact', /^[6-9]\d{9}$/, '#contactError', 'Invalid contact number.');
+            validateField('#address', /^[a-zA-Z0-9\s,\.]+$/, '#addressError', 'Invalid address.');
+            validateField('#password', /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, '#passwordError', 'Password must include at least one capital letter, one digit, one special character, and be at least 6 characters long.');
+            
+            $('#re-password').on('blur', function () {
+                if ($('#password').val() !== $(this).val()) {
+                    $('#rePasswordError').text('Passwords do not match.');
+                } else {
+                    $('#rePasswordError').text('');
+                }
+            });
+
+            $('#photo').on('change', function () {
+                const photo = $(this)[0].files[0];
+                const validExtensions = ['jpg', 'jpeg', 'png'];
+                if (photo) {
+                    const photoExtension = photo.name.split('.').pop().toLowerCase();
+                    if (!validExtensions.includes(photoExtension)) {
+                        $('#photoError').text('Invalid file type. Only JPG, JPEG, and PNG are allowed.');
+                    } else {
+                        $('#photoError').text('');
+                    }
+                }
+            });
+
+            $('#registrationForm').on('submit', function (e) {
+                e.preventDefault();
+                const hasErrors = $('.text-danger').text().trim().length > 0;
+                if (!hasErrors) {
+                    this.submit();
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Please fix the errors before submitting the form.'
+                    });
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $('#validateEmailBtn').on('click', function () {
+                const email = $('#email').val();
+                if (!email) {
+                    Swal.fire('Error', 'Please enter a valid email', 'error');
+                    return;
+                }
+
+                $.ajax({
+                    url: "{% url 'WebGuest:validate_email' %}",  // URL for sending the email verification request
+                    method: 'POST',
+                    data: {
+                        email: email,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            $('#otpSection').show();
+                            Swal.fire('Success', 'OTP has been sent to your email', 'success');
+                        } else {
+                            Swal.fire('Error', response.message, 'error');
+                        }
+                    }
+                });
+            });
+
+            $('#verifyOtpBtn').on('click', function () {
+                const otp = $('#otp').val();
+                if (!otp) {
+                    Swal.fire('Error', 'Please enter the OTP', 'error');
+                    return;
+                }
+        
+                $.ajax({
+                    url: "{% url 'WebGuest:verify_otp' %}",
+                    method: 'POST',
+                    data: {
+                        otp: otp,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            $('#emailVerifiedMessage').text('Email verified successfully!');
+                            $('#registerBtn').prop('disabled', false); // Enable the Register button if verification is successful
+                        } else {
+                            $('#otpError').text('Invalid OTP. Please try again.');
+                        }
+                    },
+                    error: function () {
+                        Swal.fire('Error', 'An error occurred while verifying OTP. Please try again.', 'error');
+                    }
+                });
+            });
+        
+        });
+    </script>
+</body>
+</html>

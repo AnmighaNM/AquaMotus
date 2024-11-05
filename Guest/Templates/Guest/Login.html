@@ -1,0 +1,223 @@
+{% load static %}
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Aqua Motus | Login</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{% static 'Guest/Pages/images/favicon.png' %}"
+    />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'Guest/Pages/css/bootstrap.min.css' %}" />
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="{% static 'Guest/Pages/css/fontawesome-all.min.css' %}" />
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'Guest/Pages/css/flaticon.css' %}" />
+    <!-- Google Web Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'Guest/Pages/css/style.css' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+      .disabled-button {
+          pointer-events: none;
+          opacity: 0.6;
+          cursor: not-allowed;
+      }
+      
+
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4285F4; /* Google blue */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 600px; /* Limit the max width */
+}
+
+.google-btn:hover {
+    background-color: white; /* Darker blue */
+}
+
+.google-btn img {
+    margin-right: 10px;
+}
+  </style>
+  </head>
+
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <div id="preloader" class="preloader">
+      <div class="inner">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </div>
+    <section
+      class="fxt-template-animation fxt-template-layout3"
+      data-bg-image="{% static 'Guest/Pages/images/Images.webp' %}"
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-12 fxt-none-991">
+            <div class="fxt-header">
+              <div class="fxt-transformY-50 fxt-transition-delay-1">
+                <a href="{% url 'WebGuest:Index' %}" class="fxt-logo"
+                  ><img
+                    src="{% static 'Guest/Pages/images/AQUA MOTUS-Circle.png' %}"
+                    alt="Logo"
+                /></a>
+              </div>
+              <div class="fxt-transformY-50 fxt-transition-delay-2">
+                <h1>Welcome To AQUA MOTUS</h1>
+              </div>
+              <div class="fxt-transformY-50 fxt-transition-delay-3">
+                <p>
+                    Is an innovative and sustainable mode of
+                    transportation that connects various parts of the city through
+                    its intricate network of waterways. Aims to reduce
+                    traffic congestion and improve the connectivity of the city
+                    while promoting eco-friendly means of transportation.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12 fxt-bg-color">
+            <div class="fxt-content">
+              <div class="fxt-form">
+                <h2>Login</h2>
+                <p class="mb-5">Login into your pages account</p>
+                <form method="POST" action="{% url 'WebGuest:Login' %}">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label for="email" class="input-label">Email Address</label>
+                    <input 
+                      type="email"
+                      id="email"
+                      class="form-control"
+                      name="Email"
+                      placeholder="demo@gmail.com"
+                      required="required"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="password" class="input-label">Password</label>
+                    <input 
+                      id="password"
+                      type="password"
+                      class="form-control"
+                      name="Password"
+                      placeholder="********"
+                      required="required"
+                    />
+                    {% comment %} <i
+                      toggle="#password"
+                      class="fa fa-fw fa-eye toggle-password field-icon"
+                    ></i> {% endcomment %}
+                  </div>
+                  <div class="form-group">
+                    <div class="fxt-checkbox-area">
+                      <div class="checkbox">
+                        <input id="checkbox1" type="checkbox" />
+                        {% comment %} <label for="checkbox1">Keep me logged in</label> {% endcomment %}
+                      </div>
+                      <a href="{% url 'WebGuest:ForgetPassword' %}" class="switcher-text"
+                        >Forgot Password</a
+                      >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" class="fxt-btn-fill" name="login" value="Log in"><br>
+                    
+                  </div>
+                </form>
+              </div>
+              <div class="fxt-style-line" >
+                <h3>Or Login With Google</h3>
+              </div>
+
+                <div class="google-btn-box">
+                    {% comment %} <a href="{% provider_login_url 'google' %}" class="google-btn"> {% endcomment %}
+                      <a href="" class="google-btn">
+                        <img src="{% static 'Guest/Pages/images/google-icon.png' %}" alt="Google" width="20" height="20" />
+                        Sign in with Google
+                    </a>
+                </div><br>
+            
+
+              <div class="fxt-footer">
+                <p>
+                  Don't have an account?<a
+                     href="{% url 'WebGuest:UserRegistration' %}"
+                    class="switcher-text2 inline-text"
+                    >Register</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- jquery-->
+    <script src="{% static 'Guest/Pages/js/jquery.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'Guest/Pages/js/bootstrap.min.js' %}"></script>
+    <!-- Imagesloaded js -->
+    <script src="{% static 'Guest/Pages/js/imagesloaded.pkgd.min.js' %}"></script>
+    <!-- Validator js -->
+    <script src="{% static 'Guest/Pages/js/validator.min.js' %}"></script>
+    <!-- Custom Js -->
+    <script src="{% static 'Guest/Pages/js/main.js' %}"></script>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          {% if messages %}
+              {% for message in messages %}
+                  {% if message.tags == 'success' %}
+                      Swal.fire({
+                          icon: 'success',
+                          title: 'Registration Successful',
+                          text: '{{ message }}',
+                          showConfirmButton: false,
+                          timer: 2000
+                      });
+                  {% elif message.tags == 'error' %}
+                      Swal.fire({
+                          icon: 'error',
+                          title: 'Oops...',
+                          text: '{{ message }}',
+                          showConfirmButton: true
+                      });
+                  {% endif %}
+              {% endfor %}
+          {% endif %}
+      });
+    </script>
+  </body>
+</html>
